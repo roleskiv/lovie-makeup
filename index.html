@@ -4,16 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Lovie: a little love for your routine. Concept storefront for a fictional beauty brand.">
-<meta name="theme-color" content="#6B2533">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23B66A79' d='M12 0c1 7 5 11 12 12-7 1-11 5-12 12-1-7-5-11-12-12 7-1 11-5 12-12z'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#5C333D">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23A5626B' d='M12 0c1 7 5 11 12 12-7 1-11 5-12 12-1-7-5-11-12-12 7-1 11-5 12-12z'/%3E%3C/svg%3E">
 <title>Lovie</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0,1&family=Hanken+Grotesk:wght@400;500;600&display=swap">
 <style>
-/* Layout: a quiet ivory page where each product sits on its own blush arch; one burgundy note for actions */
+/* Layout: warm ivory page, a full product lineup as the hero, mauve type and rose-gold light; one deep plum note for actions */
 :root{
-  --ivory:#FFF9F6; --blush:#F4D6D9; --blush-soft:#FAEBEC; --rose:#B66A79; --burgundy:#6B2533; --ink:#3A1A21; --ink-soft:#7A5A61;
-  --chrome:#C9CBD1; --line:rgba(107,37,51,.14);
+  --ivory:#FCF7F4; --blush:#EAD3D0; --blush-soft:#F5E9E6; --rose:#A5626B; --burgundy:#5C333D; --ink:#3A2328; --ink-soft:#7B6166; --gold:linear-gradient(100deg,#B98078,#F1D3C8 38%,#C08C83 62%,#EBC8BD);
+  --chrome:#C9CBD1; --line:rgba(92,51,61,.16);
   --display:'Instrument Serif','Cormorant Garamond',Georgia,serif; --body:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif;
   color-scheme:light;
 }
@@ -25,7 +25,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 @media(min-width:760px){.wrap{padding-left:max(40px,env(safe-area-inset-left,0px));padding-right:max(40px,env(safe-area-inset-right,0px))}}
 h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;line-height:1.02;text-wrap:balance;letter-spacing:-.01em}
 h1{font-size:clamp(46px,8.4vw,104px)} h2{font-size:clamp(36px,5.2vw,64px)} h3{font-size:28px}
-h1 em,h2 em{color:var(--rose)}
+h1 em,h2 em{color:var(--rose);font-style:italic}
 p{margin:0}
 button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
 a{color:inherit}
@@ -34,46 +34,51 @@ a{color:inherit}
 .label{font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--rose)}
 .muted{color:var(--ink-soft)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--burgundy);color:var(--ivory);border-radius:999px;padding:15px 30px;font-weight:500;font-size:15px;letter-spacing:.02em;text-decoration:none;transition:transform .25s cubic-bezier(.2,.8,.2,1),background .25s,box-shadow .25s}
-.btn:hover{background:#7d2e3e;transform:translateY(-2px);box-shadow:0 10px 24px -10px rgba(107,37,51,.55)}
+.btn:hover{background:#6f404b;transform:translateY(-2px);box-shadow:0 10px 24px -10px rgba(92,51,61,.55)}
 .btn:active{transform:scale(.97)}
 .btn.line{background:transparent;color:var(--burgundy);box-shadow:inset 0 0 0 1px var(--burgundy)}
 .btn.line:hover{background:var(--burgundy);color:var(--ivory)}
 .spark{display:inline-block;width:1em;height:1em;vertical-align:-.12em;fill:currentColor}
 
 /* announcement + nav */
-.announce{background:var(--burgundy);color:var(--blush);text-align:center;font-size:13px;letter-spacing:.14em;padding-block:9px}
-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(255,249,246,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.announce{background:var(--burgundy);color:#F3DDD8;text-align:center;font-size:13px;letter-spacing:.14em;padding-block:9px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(252,247,244,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:66px;gap:12px}
 .nav nav{display:flex;gap:26px;font-size:14px;letter-spacing:.04em}
 .nav nav button{position:relative;padding:6px 0}
 .nav nav button::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--burgundy);transform:scaleX(0);transform-origin:left;transition:transform .3s}
 .nav nav button:hover::after{transform:scaleX(1)}
-.nav .logo img{height:26px;width:auto;display:block}
+.nav .logo img{height:30px;width:auto;display:block}
 .cart{justify-self:end;display:flex;align-items:center;gap:8px;font-size:14px;padding:8px 4px}
 .cart svg{width:22px;height:22px;stroke:var(--burgundy);fill:none;stroke-width:1.5}
 .cart b{background:var(--rose);color:#fff;border-radius:999px;min-width:20px;height:20px;display:inline-grid;place-items:center;font-size:11px;font-weight:600;transition:transform .3s cubic-bezier(.3,1.6,.5,1)}
 .cart b.bump{transform:scale(1.35)}
-@media(max-width:700px){.nav{grid-template-columns:auto 1fr auto}.nav nav{gap:14px;font-size:13px;order:2;justify-content:center}.nav .logo{order:1}.cart{order:3}.cart span{display:none}.nav .logo img{height:20px}}
+@media(max-width:700px){.nav{grid-template-columns:auto 1fr auto}.nav nav{gap:14px;font-size:13px;order:2;justify-content:center}.nav .logo{order:1}.cart{order:3}.cart span{display:none}.nav .logo img{height:22px}}
 @media(max-width:400px){.nav nav{gap:10px;font-size:12px}}
 
 /* hero */
-.hero{background:linear-gradient(180deg,var(--ivory),var(--blush-soft) 70%,var(--blush));overflow:hidden;position:relative}
-.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:24px;align-items:center;padding-block:64px 0}
-.hero-copy{display:flex;flex-direction:column;gap:24px;align-items:flex-start;padding-bottom:64px;min-width:0}
-.hero-copy img{height:34px;width:auto}
-.hero-copy p{max-width:44ch;font-size:18px;color:var(--ink-soft)}
-.stage{position:relative;align-self:end;display:flex;justify-content:center;align-items:flex-end;min-height:420px;min-width:0}
-.arch{position:absolute;left:8%;right:8%;bottom:0;top:6%;background:linear-gradient(180deg,#F8E1E3,#EFC3C9);border-radius:999px 999px 0 0}
-.stage img{position:relative;height:auto;filter:drop-shadow(0 18px 22px rgba(107,37,51,.22));animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
-.stage img:nth-of-type(1){width:17%;animation-delay:.05s}
-.stage img:nth-of-type(2){width:33%;margin:0 -2% 0 -1%;animation-delay:.15s;z-index:2}
-.stage img:nth-of-type(3){width:15%;animation-delay:.25s;z-index:3}
-.stage img:nth-of-type(4){width:19%;margin-left:1%;animation-delay:.35s}
-@keyframes rise{from{transform:translateY(40px);opacity:.0}to{transform:none;opacity:1}}
-.tw{position:absolute;color:#fff;animation:tw 3.2s ease-in-out infinite}
-.tw svg{width:100%;height:100%;fill:currentColor;display:block}
-@keyframes tw{0%,100%{transform:scale(.5) rotate(0);opacity:.35}50%{transform:scale(1) rotate(20deg);opacity:1}}
-@media(max-width:820px){.hero .wrap{grid-template-columns:1fr;padding-top:40px}.hero-copy{padding-bottom:8px;align-items:center;text-align:center}.stage{min-height:300px}}
+.hero{background:radial-gradient(120% 75% at 50% 104%,#E3C3BF 0,#F1DEDA 42%,var(--ivory) 82%);overflow:hidden;position:relative}
+.hero .wrap{display:flex;flex-direction:column;align-items:center;padding-block:76px 0}
+.hero-copy{display:flex;flex-direction:column;gap:22px;align-items:center;text-align:center;min-width:0;position:relative;z-index:2}
+.hero-copy p{max-width:46ch;font-size:18px;color:var(--ink-soft)}
+.stage{position:relative;width:100%;max-width:1060px;container-type:inline-size;margin-top:34px}
+.lineup{display:flex;justify-content:center;align-items:flex-end;--H:calc(100cqw / 2.3)}
+.lineup img{height:calc(var(--H) * var(--h));width:auto;margin-inline:calc(var(--H) * -.02);position:relative;z-index:var(--z,1);filter:drop-shadow(0 16px 18px rgba(92,51,61,.26));animation:rise 1s cubic-bezier(.2,.8,.2,1) both;animation-delay:var(--d,0s);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.lineup img:hover{transform:translateY(-12px)}
+.stage::after{content:"";position:absolute;left:-20%;right:-20%;bottom:0;height:9%;background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,.35));pointer-events:none}
+@keyframes rise{from{transform:translateY(60px);opacity:0}to{transform:none;opacity:1}}
+.gem{position:absolute;height:auto;pointer-events:none;filter:drop-shadow(0 10px 14px rgba(92,51,61,.22));animation:float 7s ease-in-out infinite}
+.gem.g1{width:clamp(54px,11cqw,120px);left:2%;top:-34%}
+.gem.g2{width:clamp(30px,5.5cqw,60px);right:6%;top:-10%;animation-delay:-3s}
+.gem.g3{width:clamp(22px,3.5cqw,38px);right:20%;top:-52%;animation-delay:-5s}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-14px) rotate(8deg)}}
+@media(max-width:640px){.hero .wrap{padding-top:44px}.lineup{--H:calc(100cqw / 1.5)}.lineup .wide{display:none}.gem.g1{top:-16%;left:-2%}.gem.g3{display:none}}
+
+/* marquee */
+.ticker{background:var(--burgundy);color:#F3DDD8;overflow:hidden;padding-block:16px;font-family:var(--display);font-style:italic;font-size:clamp(20px,2.6vw,30px);white-space:nowrap}
+.ticker div{display:inline-flex;gap:36px;align-items:center;padding-right:36px;animation:tick 36s linear infinite}
+.ticker .spark{width:.6em;height:.6em;color:#D9A79C}
+@keyframes tick{to{transform:translateX(-50%)}}
 
 section{padding-block:96px}
 @media(max-width:700px){section{padding-block:64px}}
@@ -82,26 +87,26 @@ section{padding-block:96px}
 .note{font-size:13px;color:var(--ink-soft);background:var(--blush-soft);border-radius:999px;padding:8px 16px;display:inline-flex;gap:8px;align-items:center}
 
 /* categories */
-.cats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.cat{position:relative;border-radius:22px;background:var(--blush-soft);aspect-ratio:4/5;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:22px;text-align:left;transition:background .4s}
-.cat:hover,.cat[aria-pressed="true"]{background:var(--blush)}
-.cat img{position:absolute;right:8%;bottom:-6%;height:78%;width:auto;max-width:70%;object-fit:contain;transition:transform .6s cubic-bezier(.2,.8,.2,1);filter:drop-shadow(0 14px 18px rgba(107,37,51,.18))}
+.cats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.cat{position:relative;border-radius:22px;background:linear-gradient(180deg,var(--blush-soft),#EFDCD8);aspect-ratio:3/4;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:22px;text-align:left;transition:background .4s}
+.cat:hover,.cat[aria-pressed="true"]{background:linear-gradient(180deg,#F0DEDA,var(--blush))}
+.cat img{position:absolute;right:8%;bottom:6%;height:66%;width:auto;max-width:62%;object-fit:contain;transition:transform .6s cubic-bezier(.2,.8,.2,1);filter:drop-shadow(0 14px 18px rgba(92,51,61,.18))}
 .cat:hover img{transform:translateY(-10px) rotate(-3deg)}
-.cat h3{font-size:clamp(28px,4vw,44px);position:relative}
+.cat h3{font-size:clamp(28px,3.4vw,44px);position:relative;font-style:italic}
 .cat span{position:relative;font-size:13px;letter-spacing:.08em;color:var(--burgundy);display:inline-flex;gap:6px;align-items:center}
 .cat[aria-pressed="true"] span::before{content:"showing · "}
-@media(max-width:640px){.cats{grid-template-columns:1fr}.cat{aspect-ratio:16/9}.cat img{height:92%;right:6%}}
+@media(max-width:860px){.cats{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.cat{aspect-ratio:1;padding:16px}.cat img{max-width:46%;height:58%;right:6%}}
 
 /* products */
 .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
 @media(max-width:1000px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:720px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
 .card{display:flex;flex-direction:column;gap:12px;min-width:0}
-.card .pic{position:relative;background:var(--blush-soft);border-radius:20px;aspect-ratio:4/5;display:grid;place-items:center;overflow:hidden;transition:background .4s;width:100%}
-.card:hover .pic{background:var(--blush)}
-.card .pic img{position:absolute;left:14%;top:11%;width:72%;height:78%;object-fit:contain;transition:transform .6s cubic-bezier(.2,.8,.2,1),filter .5s;filter:var(--tint,none) drop-shadow(0 14px 16px rgba(107,37,51,.18))}
+.card .pic{position:relative;background:linear-gradient(180deg,var(--blush-soft),#EFDCD8);border-radius:20px;aspect-ratio:4/5;display:grid;place-items:center;overflow:hidden;transition:background .4s;width:100%}
+.card:hover .pic{background:linear-gradient(180deg,#F0DEDA,var(--blush))}
+.card .pic img{position:absolute;left:14%;top:11%;width:72%;height:78%;object-fit:contain;transition:transform .6s cubic-bezier(.2,.8,.2,1),filter .5s;filter:var(--tint,none) drop-shadow(0 14px 16px rgba(92,51,61,.18))}
 .card:hover .pic img{transform:translateY(-8px) scale(1.04) rotate(-2deg)}
-.card .pic .quick{position:absolute;left:12px;right:12px;bottom:12px;background:rgba(255,249,246,.94);color:var(--burgundy);border-radius:999px;padding:11px;font-size:13px;font-weight:500;text-align:center;transform:translateY(60px);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.card .pic .quick{position:absolute;left:12px;right:12px;bottom:12px;background:rgba(252,247,244,.94);color:var(--burgundy);border-radius:999px;padding:11px;font-size:13px;font-weight:500;text-align:center;transform:translateY(60px);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
 .card:hover .quick,.card:focus-within .quick{transform:none}
 @media(hover:none){.card .pic .quick{transform:none}}
 .card .meta{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
@@ -112,7 +117,7 @@ section{padding-block:96px}
 .ph{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);display:block;text-align:right}
 .kind{font-size:13px;color:var(--ink-soft);margin-top:-8px}
 .dots{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-.dots button{width:22px;height:22px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(58,26,33,.14);transition:transform .2s}
+.dots button{width:22px;height:22px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(58,35,40,.14);transition:transform .2s}
 .dots button:hover{transform:scale(1.15)}
 .dots button[aria-pressed="true"]{box-shadow:0 0 0 2px var(--ivory),0 0 0 3.5px var(--burgundy)}
 .dots i{font-style:normal;font-size:13px;color:var(--ink-soft);margin-left:4px}
@@ -120,11 +125,22 @@ section{padding-block:96px}
 .add:hover{background:var(--burgundy);color:var(--ivory)}.add:active{transform:scale(.97)}
 .add.done{background:var(--rose);color:#fff;box-shadow:none}
 
+.card.all{background:var(--burgundy);color:#F3DDD8;border-radius:20px;padding:22px;justify-content:space-between;gap:16px}
+.card.all img{width:46%;align-self:center;animation:float 7s ease-in-out infinite;filter:drop-shadow(0 12px 16px rgba(0,0,0,.3))}
+.card.all h3{font-style:italic;font-size:30px}.card.all p{font-size:14px;margin-top:8px;opacity:.9}
+.card.all .add{box-shadow:inset 0 0 0 1px #F3DDD8;color:#F3DDD8}.card.all .add:hover{background:#F3DDD8;color:var(--burgundy)}
+@media(max-width:720px){.card.all{grid-column:1/-1;flex-direction:row;align-items:center;flex-wrap:wrap}.card.all img{width:64px}.card.all>div{flex:1;min-width:150px}.card.all .add{width:100%}}
+
 /* story */
 .story{background:var(--blush-soft)}
 .story .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
 .story .wrap > *{min-width:0}
-.story img{width:100%;border-radius:24px;aspect-ratio:1;object-fit:cover}
+.still{position:relative;border-radius:28px;aspect-ratio:1;overflow:hidden;background:radial-gradient(90% 70% at 50% 100%,#DDB9B5,#EFD9D5 55%,#F7ECE9)}
+.still img{position:absolute;height:auto;filter:drop-shadow(0 20px 22px rgba(92,51,61,.28))}
+.still .a{width:50%;left:9%;bottom:9%}
+.still .b{width:16%;right:17%;bottom:9%}
+.still .c{width:26%;right:7%;top:8%;animation:float 8s ease-in-out infinite}
+.still .d{width:9%;left:12%;top:14%;animation:float 6s ease-in-out -2s infinite}
 .story .txt{display:flex;flex-direction:column;gap:22px}
 .story p{max-width:52ch}
 .vals{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:8px}
@@ -133,36 +149,40 @@ section{padding-block:96px}
 @media(max-width:820px){.story .wrap{grid-template-columns:1fr;gap:32px}.vals{grid-template-columns:1fr}}
 
 /* edit */
-.edit{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:16px}
-.tile{border-radius:22px;background:var(--blush-soft);padding:24px;display:flex;flex-direction:column;justify-content:space-between;gap:16px;min-width:0;min-height:300px;overflow:hidden}
-.tile.dark{background:var(--burgundy);color:var(--blush)}
-.tile img{height:200px;width:100%;object-fit:contain;align-self:center;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
-.tile:hover img{transform:scale(1.05) rotate(2deg)}
-.tile p{font-size:14px}
-@media(max-width:860px){.edit{grid-template-columns:1fr 1fr}.edit .tile:first-child{grid-column:1/-1}}
-@media(max-width:520px){.edit{grid-template-columns:1fr}}
+.edit{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.tile{border-radius:22px;background:var(--blush-soft);padding:24px;display:flex;flex-direction:column;justify-content:space-between;gap:18px;min-width:0;overflow:hidden}
+.tile.dark{background:var(--burgundy);color:#F3DDD8}
+.tile.dark .add{box-shadow:inset 0 0 0 1px #F3DDD8;color:#F3DDD8}.tile.dark .add:hover{background:#F3DDD8;color:var(--burgundy)}
+.tile h3{font-style:italic;font-size:32px}
+.tile p{font-size:14px;margin-top:8px}
+.duo{display:flex;justify-content:center;align-items:flex-end;height:230px;gap:5%}
+.duo img{height:calc(230px * var(--h));width:auto;filter:drop-shadow(0 14px 16px rgba(40,18,24,.3));transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.tile:hover .duo img{transform:translateY(-8px)}
+.tile:hover .duo img:nth-child(2){transition-delay:.06s}.tile:hover .duo img:nth-child(3){transition-delay:.12s}
+@media(max-width:860px){.edit{grid-template-columns:1fr}}
 
 /* signup */
 .signup{text-align:center}
+.signup .gem2{width:84px;height:auto;animation:float 7s ease-in-out infinite;filter:drop-shadow(0 10px 14px rgba(92,51,61,.25))}
 .signup .wrap{display:flex;flex-direction:column;align-items:center;gap:20px}
 .signup form{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;width:100%}
 .signup input{border:1px solid var(--line);background:#fff;border-radius:999px;padding:15px 22px;font:inherit;color:var(--ink);width:min(340px,100%)}
 .msg{min-height:24px;font-size:15px;color:var(--burgundy)}
 
-footer{background:var(--burgundy);color:var(--blush);padding-block:56px 40px;font-size:14px}
+footer{background:var(--burgundy);color:#F3DDD8;padding-block:56px 40px;font-size:14px}
 footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
 footer .cols > div{display:flex;flex-direction:column;gap:8px;min-width:0}
-footer img{height:26px;width:auto;filter:brightness(0) invert(1);opacity:.92;align-self:flex-start}
+footer img{height:34px;width:auto;filter:brightness(0) invert(1);opacity:.92;align-self:flex-start}
 footer h4{margin:0 0 4px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:#fff}
 footer button{text-align:left;opacity:.85}footer button:hover{opacity:1;text-decoration:underline}
-footer .fine{border-top:1px solid rgba(244,214,217,.25);margin-top:36px;padding-top:20px;font-size:12.5px;opacity:.8}
+footer .fine{border-top:1px solid rgba(234,211,208,.25);margin-top:36px;padding-top:20px;font-size:12.5px;opacity:.8}
 @media(max-width:760px){footer .cols{grid-template-columns:1fr 1fr}}
 
 /* product detail */
 .pdp .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;padding-block:40px 96px;align-items:start}
 .pdp .wrap > *{min-width:0}
-.pdp .pic{background:linear-gradient(180deg,var(--blush-soft),var(--blush));border-radius:28px;aspect-ratio:1;display:grid;place-items:center;position:relative;overflow:hidden}
-.pdp .pic img{position:absolute;left:13%;top:10%;width:74%;height:80%;object-fit:contain;filter:var(--tint,none) drop-shadow(0 24px 26px rgba(107,37,51,.22));transition:filter .5s;animation:rise .7s cubic-bezier(.2,.8,.2,1) both}
+.pdp .pic{background:radial-gradient(90% 70% at 50% 100%,#E3C6C2,#F1DEDA 55%,var(--blush-soft));border-radius:28px;aspect-ratio:1;display:grid;place-items:center;position:relative;overflow:hidden}
+.pdp .pic img{position:absolute;left:13%;top:10%;width:74%;height:80%;object-fit:contain;filter:var(--tint,none) drop-shadow(0 24px 26px rgba(92,51,61,.22));transition:filter .5s;animation:rise .7s cubic-bezier(.2,.8,.2,1) both}
 .pdp .info{display:flex;flex-direction:column;gap:20px}
 .back{font-size:14px;color:var(--ink-soft);align-self:flex-start}.back:hover{color:var(--burgundy)}
 .pdp h1{font-size:clamp(44px,6vw,76px)}
@@ -176,7 +196,7 @@ details p{margin-top:10px;color:var(--ink-soft);font-size:15px}
 @media(max-width:820px){.pdp .wrap{grid-template-columns:1fr;gap:28px;padding-top:20px}}
 
 /* drawer */
-.scrim{position:fixed;inset:0;background:rgba(58,26,33,.35);opacity:0;pointer-events:none;transition:opacity .3s;z-index:70}
+.scrim{position:fixed;inset:0;background:rgba(58,35,40,.35);opacity:0;pointer-events:none;transition:opacity .3s;z-index:70}
 .scrim.on{opacity:1;pointer-events:auto}
 .drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);background:var(--ivory);z-index:80;transform:translateX(102%);transition:transform .45s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;padding:calc(24px + env(safe-area-inset-top,0px)) max(24px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) 24px;gap:18px;visibility:hidden}
 .drawer.on{transform:none;visibility:visible}
@@ -185,16 +205,16 @@ details p{margin-top:10px;color:var(--ink-soft);font-size:15px}
 .lines{flex:1;overflow:auto;display:flex;flex-direction:column;gap:14px}
 .line{display:grid;grid-template-columns:64px 1fr auto;gap:14px;align-items:center}
 .line .th{background:var(--blush-soft);border-radius:12px;height:76px;display:grid;place-items:center}
-.line .th img{max-height:60px;max-width:44px;width:auto;height:auto;filter:var(--tint,none)}
+.line .th img{max-height:60px;max-width:52px;width:auto;height:auto;filter:var(--tint,none)}
 .line small{color:var(--ink-soft);display:block}
 .line .q{display:flex;gap:10px;align-items:center;font-size:14px;margin-top:4px}
 .line .q button{width:26px;height:26px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--line)}
 .sum{display:flex;justify-content:space-between;font-weight:600;border-top:1px solid var(--line);padding-top:16px}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 </style>
-<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
+
 
 <a class="skip" href="#main">Skip to content</a>
 <div class="announce"><svg class="spark" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c1 7 5 11 12 12-7 1-11 5-12 12-1-7-5-11-12-12 7-1 11-5 12-12z"/></svg>&nbsp; a little love for your routine</div>
@@ -209,20 +229,19 @@ details p{margin-top:10px;color:var(--ink-soft);font-size:15px}
   <section class="hero" id="top" style="padding-block:0">
     <div class="wrap">
       <div class="hero-copy">
-        <img src="img/logo.webp" alt="Lovie">
+        <div class="label">The first collection</div>
         <h1>meet your new <em>everyday</em> favorites</h1>
-        <p>Seven soft, easy pieces for lips, cheeks and eyes. Made to be reached for every morning.</p>
+        <p>Seven soft, easy pieces for lips, cheeks, face and eyes, all dressed in rose gold.</p>
         <button class="btn" type="button" data-go="shop">explore the collection</button>
       </div>
       <div class="stage" aria-hidden="true">
-        <div class="arch"></div>
-        <span class="tw" style="left:12%;top:10%;width:34px;height:34px"><svg viewBox="0 0 24 24"><path d="M12 0c1 7 5 11 12 12-7 1-11 5-12 12-1-7-5-11-12-12 7-1 11-5 12-12z"/></svg></span>
-        <span class="tw" style="right:14%;top:24%;width:20px;height:20px;animation-delay:1.1s"><svg viewBox="0 0 24 24"><path d="M12 0c1 7 5 11 12 12-7 1-11 5-12 12-1-7-5-11-12-12 7-1 11-5 12-12z"/></svg></span>
-        <span class="tw" style="left:30%;top:2%;width:14px;height:14px;animation-delay:2s"><svg viewBox="0 0 24 24"><path d="M12 0c1 7 5 11 12 12-7 1-11 5-12 12-1-7-5-11-12-12 7-1 11-5 12-12z"/></svg></span>
-        <img src="img/blush-stick.webp" alt=""><img src="img/powder-blush.webp" alt=""><img src="img/lip-oil.webp" alt=""><img src="img/liquid-blush.webp" alt="">
+        <img class="gem g1" src="img/sparkle.webp" alt=""><img class="gem g2" src="img/sparkle.webp" alt=""><img class="gem g3" src="img/sparkle.webp" alt="">
+        <div class="lineup"><img src="img/setting-powder.webp" alt="" class="wide" style="--h:0.41;--z:5;--d:0.5s"><img src="img/blush-stick.webp" alt="" class="" style="--h:0.66;--z:2;--d:0.1s"><img src="img/skin-tint.webp" alt="" class="" style="--h:0.86;--z:3;--d:0.2s"><img src="img/lip-oil.webp" alt="" class="" style="--h:0.84;--z:4;--d:0s"><img src="img/liquid-blush.webp" alt="" class="" style="--h:0.75;--z:3;--d:0.15s"><img src="img/mascara.webp" alt="" class="" style="--h:0.8;--z:2;--d:0.3s"><img src="img/powder-blush.webp" alt="" class="wide" style="--h:0.45;--z:5;--d:0.45s"></div>
       </div>
     </div>
   </section>
+
+  <div class="ticker" aria-hidden="true"><div><span>a little love for your routine</span><svg class="spark" viewBox="0 0 24 24"><path d="M12 0c1 7 5 11 12 12-7 1-11 5-12 12-1-7-5-11-12-12 7-1 11-5 12-12z"/></svg><span>made for your everyday glow</span><svg class="spark" viewBox="0 0 24 24"><path d="M12 0c1 7 5 11 12 12-7 1-11 5-12 12-1-7-5-11-12-12 7-1 11-5 12-12z"/></svg><span>meet your new everyday favorites</span><svg class="spark" viewBox="0 0 24 24"><path d="M12 0c1 7 5 11 12 12-7 1-11 5-12 12-1-7-5-11-12-12 7-1 11-5 12-12z"/></svg><span>a little love for your routine</span><svg class="spark" viewBox="0 0 24 24"><path d="M12 0c1 7 5 11 12 12-7 1-11 5-12 12-1-7-5-11-12-12 7-1 11-5 12-12z"/></svg><span>made for your everyday glow</span><svg class="spark" viewBox="0 0 24 24"><path d="M12 0c1 7 5 11 12 12-7 1-11 5-12 12-1-7-5-11-12-12 7-1 11-5 12-12z"/></svg><span>meet your new everyday favorites</span><svg class="spark" viewBox="0 0 24 24"><path d="M12 0c1 7 5 11 12 12-7 1-11 5-12 12-1-7-5-11-12-12 7-1 11-5 12-12z"/></svg><span>a little love for your routine</span><svg class="spark" viewBox="0 0 24 24"><path d="M12 0c1 7 5 11 12 12-7 1-11 5-12 12-1-7-5-11-12-12 7-1 11-5 12-12z"/></svg><span>made for your everyday glow</span><svg class="spark" viewBox="0 0 24 24"><path d="M12 0c1 7 5 11 12 12-7 1-11 5-12 12-1-7-5-11-12-12 7-1 11-5 12-12z"/></svg><span>meet your new everyday favorites</span><svg class="spark" viewBox="0 0 24 24"><path d="M12 0c1 7 5 11 12 12-7 1-11 5-12 12-1-7-5-11-12-12 7-1 11-5 12-12z"/></svg><span>a little love for your routine</span><svg class="spark" viewBox="0 0 24 24"><path d="M12 0c1 7 5 11 12 12-7 1-11 5-12 12-1-7-5-11-12-12 7-1 11-5 12-12z"/></svg><span>made for your everyday glow</span><svg class="spark" viewBox="0 0 24 24"><path d="M12 0c1 7 5 11 12 12-7 1-11 5-12 12-1-7-5-11-12-12 7-1 11-5 12-12z"/></svg><span>meet your new everyday favorites</span><svg class="spark" viewBox="0 0 24 24"><path d="M12 0c1 7 5 11 12 12-7 1-11 5-12 12-1-7-5-11-12-12 7-1 11-5 12-12z"/></svg></div></div>
 
   <section id="cats" style="padding-bottom:0"><div class="wrap">
     <div class="head"><div><div class="label">Shop by category</div><h2>start <em>anywhere</em></h2></div></div>
@@ -236,28 +255,28 @@ details p{margin-top:10px;color:var(--ink-soft);font-size:15px}
   </div></section>
 
   <section class="story" id="story"><div class="wrap">
-    <img src="img/editorial.jpg" alt="Lovie lip oil and blush stick on a pink surface beside a mirror">
+    <div class="still" role="img" aria-label="Lovie powder blush compact and lip oil with the rose-gold sparkle"><img class="a" src="img/powder-blush.webp" alt=""><img class="b" src="img/lip-oil.webp" alt=""><img class="c" src="img/sparkle.webp" alt=""><img class="d" src="img/sparkle.webp" alt=""></div>
     <div class="txt">
       <div class="label">Our story</div>
       <h2>makeup that feels like <em>a little love note</em></h2>
-      <p>Lovie started with a simple idea: the things you use every day should be the things you love most. So we kept the line small, the shades soft and the packaging pretty enough to leave out on the shelf.</p>
+      <p>Lovie started with a simple idea: the things you use every day should be the things you love most. So we kept the line small, the shades soft and the rose-gold packaging pretty enough to leave out on the shelf.</p>
       <p class="muted">Every piece carries our four-point sparkle, a small reminder to give yourself a moment.</p>
-      <div class="vals"><div><b>small line</b>Seven pieces, nothing extra.</div><div><b>soft shades</b>Easy pinks and rosy neutrals.</div><div><b>pretty things</b>Chrome caps, blush cases.</div></div>
+      <div class="vals"><div><b>small line</b>Seven pieces, nothing extra.</div><div><b>soft shades</b>Dusty roses and warm neutrals.</div><div><b>rose gold</b>Mirror caps, soft mauve tubes.</div></div>
       <p class="muted" style="font-size:13px">Sample brand copy for a concept. To be reviewed before publishing.</p>
     </div>
   </div></section>
 
   <section id="edit"><div class="wrap">
-    <div class="head"><div><div class="label">The Edit</div><h2>the <em>little extras</em></h2></div><p class="muted" style="max-width:38ch">Packaging and keepsakes from the Lovie world. Concept pieces, shown for the look.</p></div>
+    <div class="head"><div><div class="label">The Edit</div><h2>three <em>little routines</em></h2></div><p class="muted" style="max-width:38ch">Ways to pair the seven. Add a whole routine to your bag in one tap.</p></div>
     <div class="edit">
-      <div class="tile"><div><h3>the makeup bag</h3><p class="muted">Canvas, a burgundy zip and a heart charm.</p></div><img src="img/makeup-bag.webp" alt="Cream canvas Lovie makeup bag with a burgundy heart charm"></div>
-      <div class="tile dark"><div><h3>the dust pouch</h3><p>A soft drawstring home for your favorites.</p></div><img src="img/pouch.webp" alt="Cream drawstring pouch with the Lovie logo"></div>
-      <div class="tile"><div><h3>the stickers</h3><p class="muted">Hearts, cherries and a kiss.</p></div><img src="img/stickers.webp" alt="Sheet of pink Lovie stickers"></div>
+      <div class="tile"><div><h3>the five-minute face</h3><p class="muted">Skin Tint, Blush Stick and Mascara.</p></div><div class="duo" aria-hidden="true"><img src="img/skin-tint.webp" alt="" style="--h:.98"><img src="img/blush-stick.webp" alt="" style="--h:.76"><img src="img/mascara.webp" alt="" style="--h:.92"></div><button class="add" type="button" data-set="skin-tint,blush-stick,mascara">add the routine</button></div>
+      <div class="tile dark"><div><h3>the soft glow</h3><p>Liquid Blush and Lip Oil.</p></div><div class="duo" aria-hidden="true"><img src="img/liquid-blush.webp" alt="" style="--h:.9"><img src="img/lip-oil.webp" alt="" style="--h:.98"></div><button class="add" type="button" data-set="liquid-blush,lip-oil">add the routine</button></div>
+      <div class="tile"><div><h3>the finishing touch</h3><p class="muted">Powder Blush and Setting Powder.</p></div><div class="duo" aria-hidden="true"><img src="img/powder-blush.webp" alt="" style="--h:.74"><img src="img/setting-powder.webp" alt="" style="--h:.56"></div><button class="add" type="button" data-set="powder-blush,setting-powder">add the routine</button></div>
     </div>
   </div></section>
 
   <section class="signup" style="background:var(--blush)"><div class="wrap">
-    <svg class="spark" viewBox="0 0 24 24" aria-hidden="true" style="width:36px;height:36px;color:var(--burgundy)"><path d="M12 0c1 7 5 11 12 12-7 1-11 5-12 12-1-7-5-11-12-12 7-1 11-5 12-12z"/></svg>
+    <img class="gem2" src="img/sparkle.webp" alt="">
     <h2>stay in the <em>loop</em></h2>
     <p class="muted" style="max-width:44ch">Leave your email for news from Lovie. This is a prototype, so nothing is stored or sent.</p>
     <form id="signForm" novalidate><label class="skip" for="email">Email address</label><input id="email" type="email" autocomplete="email" placeholder="you@example.com"><button class="btn" type="submit">sign me up</button></form>
@@ -271,7 +290,7 @@ details p{margin-top:10px;color:var(--ink-soft);font-size:15px}
 <footer><div class="wrap">
   <div class="cols">
     <div><img src="img/logo.webp" alt="Lovie"><p style="max-width:30ch;opacity:.85">a little love for your routine</p></div>
-    <div><h4>Shop</h4><button type="button" data-cat="lips">Lips</button><button type="button" data-cat="cheeks">Cheeks</button><button type="button" data-cat="eyes">Eyes</button></div>
+    <div><h4>Shop</h4><button type="button" data-cat="lips">Lips</button><button type="button" data-cat="cheeks">Cheeks</button><button type="button" data-cat="face">Face</button><button type="button" data-cat="eyes">Eyes</button></div>
     <div><h4>Lovie</h4><button type="button" data-go="story">Our Story</button><button type="button" data-go="edit">The Edit</button></div>
     <div><h4>Help</h4><span style="opacity:.85">Shipping, returns and contact pages would live here.</span></div>
   </div>
@@ -293,25 +312,25 @@ const $=id=>document.getElementById(id);
 const SP='<svg class="spark" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c1 7 5 11 12 12-7 1-11 5-12 12-1-7-5-11-12-12 7-1 11-5 12-12z"/></svg>';
 // tint: CSS filter applied to the product photo so shade swatches preview a color change
 const P=[
- {id:'lip-oil',name:'Lip Oil',cat:'lips',kind:'Glossy lip oil',price:18,img:'lip-oil',alt:'Lovie lip oil with a chrome cap and rose-pink oil',desc:'A glossy tinted oil in a chrome-capped bottle with a soft doe-foot applicator.',size:'0.15 fl oz / 4.5 mL',
-  shades:[['Rosewater','#E58AA4',''],['Peony','#D96A8C','hue-rotate(-8deg) saturate(1.2)'],['Berry','#A8455F','hue-rotate(-14deg) saturate(1.25) brightness(.86)'],['Peach','#F0A48E','hue-rotate(22deg) saturate(1.05)']]},
- {id:'liquid-blush',name:'Liquid Blush',cat:'cheeks',kind:'Liquid cheek color',price:20,img:'liquid-blush',alt:'Lovie liquid blush in a pink squeeze tube',desc:'A liquid cheek color in a soft-squeeze tube. Dot on, then blend with fingers.',size:'0.34 fl oz / 10 mL',
-  shades:[['Petal','#EFA0A8',''],['Rosy','#D97786','hue-rotate(-8deg) saturate(1.25) brightness(.95)'],['Apricot','#F2B09A','hue-rotate(20deg)']]},
- {id:'blush-stick',name:'Blush Stick',cat:'cheeks',kind:'Cream blush stick',price:22,img:'blush-stick',alt:'Lovie blush stick with a rounded rose tip',desc:'A cream blush in a twist-up stick with a rounded tip for cheeks on the go.',size:'0.21 oz / 6 g',
-  shades:[['Dusty Rose','#D97F8B',''],['Mauve','#B66A79','hue-rotate(-12deg) saturate(.9) brightness(.92)'],['Coral','#EE9682','hue-rotate(18deg) saturate(1.1)']]},
- {id:'powder-blush',name:'Powder Blush',cat:'cheeks',kind:'Pressed powder blush',price:24,img:'powder-blush',alt:'Open Lovie powder blush compact with a sparkle pressed into the pink powder',desc:'A pressed blush in a mirrored compact, embossed with the Lovie sparkle.',size:'0.18 oz / 5 g',
-  shades:[['Pink Crush','#E0668A',''],['Soft Rose','#D98C9A','saturate(.75) brightness(1.05)'],['Plum','#A8456A','hue-rotate(-18deg) saturate(1.1) brightness(.9)']]},
- {id:'highlighter',name:'Highlighter',cat:'cheeks',kind:'Pressed highlighter',price:24,img:'highlighter',alt:'Open Lovie highlighter compact with champagne powder',desc:'A pressed highlighter in a mirrored blush-pink compact.',size:'0.18 oz / 5 g',
-  shades:[['Champagne','#F0D2C4',''],['Pearl Pink','#F2C6D0','hue-rotate(-22deg) saturate(1.2)'],['Golden','#EFD2A4','hue-rotate(22deg) saturate(1.25)']]},
- {id:'mascara',name:'Mascara',cat:'eyes',kind:'Lengthening mascara',price:19,img:'mascara',alt:'Lovie mascara tube in pale pink with its wand beside it',desc:'A mascara with a slim tapered brush in a pale pink tube.',size:'0.27 fl oz / 8 mL',
+ {id:'lip-oil',name:'Lip Oil',cat:'lips',kind:'Hydrating gloss oil',price:18,img:'lip-oil',alt:'Lovie lip oil with a rose-gold cap and rosy oil',desc:'A glossy tinted oil in a clear bottle with a mirror rose-gold cap.',size:'0.16 fl oz / 5 mL',
+  shades:[['Rosewater','#B5626B',''],['Berry','#93424F','hue-rotate(-10deg) saturate(1.15) brightness(.9)'],['Peach','#C97F6C','hue-rotate(14deg) saturate(1.05) brightness(1.04)']]},
+ {id:'liquid-blush',name:'Liquid Blush',cat:'cheeks',kind:'Liquid cheek color',price:20,img:'liquid-blush',alt:'Lovie liquid blush bottle with a domed rose-gold cap',desc:'A liquid cheek color in a frosted bottle with a domed rose-gold cap. Dot on, then blend with fingers.',size:'0.34 fl oz / 10 mL',
+  shades:[['Dusty Rose','#A9606A',''],['Mauve','#8F5568','hue-rotate(-14deg) saturate(.95) brightness(.94)'],['Terracotta','#B8705C','hue-rotate(14deg) saturate(1.05)']]},
+ {id:'blush-stick',name:'Blush Stick',cat:'cheeks',kind:'Cream blush stick',price:22,img:'blush-stick',alt:'Lovie blush stick twisted up beside its mauve cap',desc:'A cream blush in a twist-up stick with a rounded tip for cheeks on the go.',size:'0.21 oz / 6 g',
+  shades:[['Rosy','#B4585F',''],['Soft Plum','#96505F','hue-rotate(-12deg) brightness(.95)'],['Coral','#C4705C','hue-rotate(12deg) saturate(1.05)']]},
+ {id:'powder-blush',name:'Powder Blush',cat:'cheeks',kind:'Pressed powder blush',price:24,img:'powder-blush',alt:'Open rose-gold Lovie compact with a sparkle pressed into the pink powder',desc:'A pressed blush in a mirrored rose-gold compact, embossed with the Lovie sparkle.',size:'0.18 oz / 5 g',
+  shades:[['Pink Crush','#D17C81',''],['Soft Rose','#D49A98','saturate(.8) brightness(1.04)'],['Plum','#A85F74','hue-rotate(-14deg) brightness(.94)']]},
+ {id:'skin-tint',name:'Skin Tint',cat:'face',kind:'Lightweight buildable coverage',price:28,img:'skin-tint',alt:'Lovie skin tint in a mauve squeeze tube with a rose-gold cap',desc:'A lightweight, buildable tint in a soft mauve squeeze tube.',size:'1.0 fl oz / 30 mL',note:'The tube artwork reads SPF 30. Any SPF claim needs lab testing and regulatory sign-off before sale.',
+  shades:[['Porcelain','#F0D9C8',''],['Sand','#E2BE9F',''],['Honey','#C99A70',''],['Amber','#A6744E',''],['Cocoa','#70482F','']]},
+ {id:'setting-powder',name:'Setting Powder',cat:'face',kind:'Loose setting powder',price:26,img:'setting-powder',alt:'Lovie setting powder jar with a rose-gold lid and embossed sparkle',desc:'A loose setting powder in a frosted jar with a mirror rose-gold lid.',size:'0.35 oz / 10 g',
+  shades:[['Translucent','#F3E7E1',''],['Soft Pink','#EFD3CF','']]},
+ {id:'mascara',name:'Mascara',cat:'eyes',kind:'Lengthening mascara',price:19,img:'mascara',alt:'Lovie mascara tube in mauve with its wand beside it',desc:'A mascara with a slim tapered brush in a matte mauve tube.',size:'0.27 fl oz / 8 mL',
   shades:[['Soft Black','#2A2224',''],['Brown','#5A3B34','']]},
- {id:'brow-gel',name:'Brow Gel',cat:'eyes',kind:'Clear brow gel',price:16,img:'brow-gel',alt:'Lovie clear brow gel in a transparent tube with a pink cap',desc:'A clear brow gel in a see-through tube with a small spoolie brush.',size:'0.14 fl oz / 4 mL',
-  shades:[['Clear','#F3EEEE','']]},
 ];
 const byId=id=>P.find(p=>p.id===id);
 const sel={};P.forEach(p=>sel[p.id]=0);
 let cat=null,bag=[];
-const CATS=[['lips','Lips','lip-oil','1 piece'],['cheeks','Cheeks','powder-blush','4 pieces'],['eyes','Eyes','mascara','2 pieces']];
+const CATS=[['lips','Lips','lip-oil','1 piece'],['cheeks','Cheeks','powder-blush','3 pieces'],['face','Face','skin-tint','2 pieces'],['eyes','Eyes','mascara','1 piece']];
 const dots=p=>`<div class="dots" role="group" aria-label="${p.name} shade">${p.shades.map((s,i)=>`<button type="button" style="background:${s[1]}" aria-label="${s[0]}" aria-pressed="${i===sel[p.id]}" data-shade="${p.id}:${i}"></button>`).join('')}<i>${p.shades[sel[p.id]][0]}</i></div>`;
 const tint=p=>{const t=p.shades[sel[p.id]][2];return t?`style="--tint:${t}"`:''};
 
@@ -321,7 +340,7 @@ function cardHTML(p){return `<div class="pic" ${tint(p)}><img src="img/${p.img}.
   <div class="kind">${p.kind}</div>${dots(p)}
   <button class="add" type="button" data-add="${p.id}">add to bag</button>`}
 function renderGrid(){const list=P.filter(p=>!cat||p.cat===cat);
-  $('grid').innerHTML=list.map(p=>`<article class="card" id="card-${p.id}">${cardHTML(p)}</article>`).join('');
+  $('grid').innerHTML=list.map(p=>`<article class="card" id="card-${p.id}">${cardHTML(p)}</article>`).join('')+(cat?'':`<article class="card all"><div><h3>the whole routine</h3><p>All seven pieces, start to finish.</p></div><img src="img/sparkle.webp" alt=""><button class="add" type="button" data-set="${P.map(p=>p.id).join(',')}">add all seven</button></article>`);
   $('shopLabel').innerHTML=cat?`${cat} · <button type="button" data-cat="" style="text-decoration:underline;letter-spacing:inherit;text-transform:inherit;font-weight:inherit">show all</button>`:'The collection';}
 function setCat(c){cat=c||null;renderCats();renderGrid();}
 
@@ -334,13 +353,13 @@ function pdpHTML(p){return `<div class="wrap"><div class="pic" ${tint(p)}><img s
  <p style="font-size:18px;max-width:46ch">${p.desc}</p>
  <div><div class="muted" style="font-size:13px;margin-bottom:8px">Shade</div>${dots(p)}</div>
  <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center"><div class="qty" role="group" aria-label="Quantity"><button type="button" data-q="-1" aria-label="Decrease quantity">−</button><output id="qOut">${qty}</output><button type="button" data-q="1" aria-label="Increase quantity">+</button></div><button class="btn" type="button" data-add="${p.id}" style="flex:1;min-width:180px">add to bag</button></div>
- <div><details open><summary>Details</summary><p>${p.kind}. ${p.size}. Sample copy for a concept; sizes and descriptions are placeholders.</p></details>
+ <div><details open><summary>Details</summary><p>${p.kind}. ${p.size}. Sample copy for a concept; sizes and descriptions are placeholders.${p.note?' '+p.note:''}</p></details>
  <details><summary>How to use</summary><p>Usage directions would go here once the formula is final.</p></details>
  <details><summary>Ingredients</summary><p>The ingredient list would go here once the formula is final.</p></details></div>
  </div></div>`}
 function route(){const m=location.hash.match(/^#product-([a-z-]+)$/);const p=m&&byId(m[1]);
   if(p){qty=1;$('pdp').innerHTML=pdpHTML(p);$('pdp').dataset.id=p.id;$('pdp').hidden=false;$('home').hidden=true;scrollTo(0,0);document.title=p.name+' · Lovie';}
-  else{$('pdp').hidden=true;$('home').hidden=false;document.title='Lovie';}}
+  else{$('pdp').hidden=true;$('home').hidden=false;}}
 addEventListener('hashchange',route);
 function goHome(target){const was=!$('pdp').hidden;if(was){history.pushState(null,'',location.pathname+location.search);route();}
   const el=target&&$(target);requestAnimationFrame(()=>{if(el)el.scrollIntoView({behavior:was?'auto':'smooth',block:'start'});else scrollTo({top:0,behavior:was?'auto':'smooth'})});}
@@ -368,6 +387,7 @@ document.addEventListener('click',e=>{const t=e.target;let b;
     const again=document.querySelector(`${$('pdp').hidden?'#card-'+id:'#pdp'} [data-shade="${id}:${i}"]`);if(again)again.focus();return}
   if(b=t.closest('[data-q]')){qty=Math.max(1,Math.min(9,qty+ +b.dataset.q));$('qOut').textContent=qty;return}
   if(b=t.closest('[data-add]')){const inPdp=!!b.closest('#pdp');addToBag(b.dataset.add,inPdp?qty:1);const old=b.textContent;b.textContent='added to bag';b.classList.add('done');setTimeout(()=>{b.textContent=old;b.classList.remove('done')},1300);if(inPdp)openBag();return}
+  if(b=t.closest('[data-set]')){b.dataset.set.split(',').forEach(id=>addToBag(id,1));openBag();return}
   if(b=t.closest('[data-line]')){const [i,d]=b.dataset.line.split(':').map(Number);bag[i].n+=d;if(bag[i].n<1)bag.splice(i,1);drawBag();return}
 });
 $('signForm').addEventListener('submit',e=>{e.preventDefault();const v=$('email').value.trim();

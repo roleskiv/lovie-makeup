@@ -20,12 +20,12 @@ To publish with GitHub Pages: **Settings → Pages → Deploy from a branch → 
 ## What's in the prototype
 
 - Announcement bar, navigation and hero
-- Lips / Cheeks / Eyes category tiles that filter the collection
+- Lips / Cheeks / Face / Eyes category tiles that filter the collection
 - Seven product cards with shade pickers and add-to-bag
 - A detail page per product (`#product-lip-oil`, and so on)
 - Bag drawer with quantities and subtotal
-- Our Story, The Edit, email signup and footer
+- Our Story, The Edit (routines you can add in one tap), email signup and footer
 
 ## Please note
 
-This is a visual prototype. Prices, shade names and descriptions are illustrative placeholders. Nothing is for sale, checkout and signup are switched off, and the product images are concept renders rather than final packaging.
+This is a visual prototype. Prices, shade names and descriptions are illustrative placeholders. Nothing is for sale, checkout and signup are switched off, and the product images are concept renders rather than final packaging. The Skin Tint artwork reads SPF 30; any SPF claim needs testing and regulatory sign-off before a real product is sold.
